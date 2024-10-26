@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: ['www.instagram.com'], // Permite las imágenes de este dominio
+  },
 };
 
 export default nextConfig;
