@@ -1,5 +1,4 @@
-'use client';
-
+"use client";
 import { useRef, useState } from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
@@ -9,18 +8,21 @@ import InstagramSection from '../components/InstagramSection';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import RopaCasual from '../components/RopaCasual';
+import TikTokSection from '../components/TikTokSection';
 
 const scrollToSection = (elementRef: React.RefObject<HTMLElement>) => {
   window.scrollTo({
     top: elementRef.current?.offsetTop,
-    behavior: 'smooth'
+    behavior: 'smooth',
   });
 };
 
 export default function LandingPage() {
+
   const inicioRef = useRef(null);
   const productosRef = useRef(null);
   const galeriaRef = useRef(null);
+  const tiktokRef = useRef(null);
   const contactoRef = useRef(null);
   const [showRopaCasual, setShowRopaCasual] = useState(false);
 
@@ -32,11 +34,12 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAFAFA]">
+    <div className="min-h-screen flex flex-col">
       <Header 
         scrollToInicio={() => scrollToSection(inicioRef)}
         scrollToProductos={() => scrollToSection(productosRef)}
         scrollToGaleria={() => scrollToSection(galeriaRef)}
+        scrollToTikTok={() => scrollToSection(tiktokRef)}
         scrollToContacto={() => scrollToSection(contactoRef)}
       />
       <main className="flex-grow">
@@ -44,6 +47,7 @@ export default function LandingPage() {
         <ProductSection ref={productosRef} onProductClick={handleProductClick} />
         <GallerySection ref={galeriaRef} />
         <InstagramSection />
+        <TikTokSection ref={tiktokRef} />
         <ContactForm ref={contactoRef} />
       </main>
       <Footer 

@@ -10,12 +10,12 @@ export default function InstagramSection() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-text-light">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Síguenos en Instagram</h2>
+        <h2 className="text-3xl font-bold bg-primary text-center mb-12">Síguenos en Instagram</h2>
         <div className="text-center mb-8">
           <p className="text-xl mb-4">Descubre nuestras últimas colecciones y ofertas exclusivas.</p>
-          <button className="bg-[#E1306C] hover:bg-[#C13584] text-white py-2 px-6 rounded-full transition duration-200">
+          <button className="bg-black hover:bg-gray-800 text-white py-2 px-6 rounded-full transition duration-200">
             <Instagram className="h-5 w-5 inline-block mr-2" />
             Seguir en Instagram
           </button>
@@ -28,21 +28,20 @@ export default function InstagramSection() {
                   <Image
                     src={post.src}
                     alt={`Instagram post ${post.id}`}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-lg transition-transform duration-300 hover:filter hover:contrast-125" // Aumentar el contraste al hacer hover
+                    fill // Cambiado de layout="fill" a fill
+                    className="rounded-lg transition-transform duration-300 hover:filter hover:contrast-125 object-cover"
                   />
                 </div>
               </a>
               <div className="p-4 flex justify-between items-center">
                 <div className="flex space-x-2">
-                  <button className="text-red-500">
+                  <button className="text-red-600 text-error">
                     <Heart className="h-5 w-5" />
                   </button>
-                  <button className="text-gray-600">
+                  <button className="text-gray-500 text-muted">
                     <MessageCircle className="h-5 w-5" />
                   </button>
-                  <button className="text-gray-600">
+                  <button className="text-gray-500 text-muted">
                     <Share2 className="h-5 w-5" />
                   </button>
                 </div>

@@ -5,6 +5,7 @@ interface HeaderProps {
   scrollToProductos: () => void;
   scrollToGaleria: () => void;
   scrollToContacto: () => void;
+  scrollToTikTok: () => void;
 }
 
 export default function Header({ scrollToInicio, scrollToProductos, scrollToGaleria, scrollToContacto }: Readonly<HeaderProps>) {

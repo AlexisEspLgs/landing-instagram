@@ -16,9 +16,6 @@ const RopaCasual: React.FC<RopaCasualProps> = ({ onClose }) => {
         '/images/outfit_completo.jpg',
         '/images/accesorios.jpg',
         '/images/image_header.jpg',
-        '/images/outfit_completo.jpg',
-        '/images/ropa_casual.jpg',
-        '/images/ropa_casual.jpg',
       ];
       setPhotos(newPhotos);
     };
@@ -28,7 +25,7 @@ const RopaCasual: React.FC<RopaCasualProps> = ({ onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-gray-100 overflow-y-auto z-50">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 bg-gray-300"> {/* Cambia a un color tipo piedra */}
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold">Ropa Casual</h2>
           <Button variant="ghost" onClick={onClose}>
@@ -42,7 +39,7 @@ const RopaCasual: React.FC<RopaCasualProps> = ({ onClose }) => {
                 src={photo}
                 alt={`Ropa casual ${photo.split('/').pop()}`}
                 layout="fill"
-                objectFit="cover"
+                className="object-cover"
               />
             </div>
           ))}

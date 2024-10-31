@@ -3,7 +3,7 @@
 import { useState, forwardRef } from 'react'
 import Button from "./ui/button"
 import Textarea from './ui/Textarea'
-import { Instagram, Phone, Mail } from "lucide-react"
+import { Instagram, Phone, Mail, User } from "lucide-react" // Importar el ícono de usuario
 import Input from './ui/Input'
 
 const ContactForm = forwardRef<HTMLElement>((props, ref) => {
@@ -19,13 +19,18 @@ const ContactForm = forwardRef<HTMLElement>((props, ref) => {
   }
 
   return (
-    <section ref={ref} className="py-20 bg-[#FAFAFA]">
+    <section ref={ref} className="py-20 bg-secondary">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">Contáctanos</h2>
         <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
           <div>
             <label htmlFor="name" className="block text-sm font-medium mb-1">Nombre</label>
-            <Input id="name" name="name" required />
+            <div className="flex">
+              <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-input bg-muted text-muted-foreground">
+                <User className="h-5 w-5" /> {/* Ícono de usuario */}
+              </span>
+              <Input id="name" name="name" required className="rounded-l-none" />
+            </div>
           </div>
           <div>
             <label htmlFor="instagram" className="block text-sm font-medium mb-1">Usuario de Instagram</label>
@@ -56,7 +61,7 @@ const ContactForm = forwardRef<HTMLElement>((props, ref) => {
           </div>
           <div>
             <label htmlFor="message" className="block text-sm font-medium mb-1">Mensaje</label>
-            <Textarea  id="message" name="message" rows={4} />
+            <Textarea id="message" name="message" rows={4} />
           </div>
           <Button type="submit" className="w-full bg-[#405DE6] hover:bg-[#5851DB]">Enviar</Button>
         </form>
