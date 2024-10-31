@@ -33,7 +33,9 @@ const ProductSection = forwardRef<HTMLElement, ProductSectionProps>(({ onProduct
   return (
     <section ref={ref} className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Nuestros Productos Destacados</h2>
+        <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 rounded-lg mb-12 text-center shadow-lg transform transition-all duration-300 scale-75 hover:scale-100">
+          <h2 className="text-3xl font-bold">Nuestros Productos Destacados</h2>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {products.map((product, index) => (
             <Card 
@@ -48,8 +50,8 @@ const ProductSection = forwardRef<HTMLElement, ProductSectionProps>(({ onProduct
                   <Image
                     src={product.image}
                     alt={product.title}
-                    fill // Cambiado de layout="fill" a fill
-                    className={`rounded-lg transition-all duration-300 ease-in-out object-cover ${hoveredProduct === index ? 'filter blur-sm' : ''}`} // Clase CSS para controlar el ajuste
+                    fill
+                    className={`rounded-lg transition-all duration-300 ease-in-out object-cover ${hoveredProduct === index ? 'filter blur-sm' : ''}`}
                   />
                   {hoveredProduct === index && (
                     <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white rounded-lg transition-opacity duration-300 ease-in-out">
@@ -68,6 +70,6 @@ const ProductSection = forwardRef<HTMLElement, ProductSectionProps>(({ onProduct
   );
 });
 
-ProductSection.displayName = 'ProductSection'; // Para facilitar la depuración
+ProductSection.displayName = 'ProductSection';
 
 export default ProductSection;

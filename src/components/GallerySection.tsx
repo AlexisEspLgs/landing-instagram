@@ -18,7 +18,9 @@ const GallerySection = forwardRef<HTMLElement>((props, ref) => {
   return (
     <section ref={ref} className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Galería de Estilos</h2>
+        <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 rounded-lg mb-12 text-center shadow-lg transform transition-all duration-300 scale-75 hover:scale-100">
+          <h2 className="text-3xl font-bold">Galería de Estilos</h2>
+        </div>
         <Swiper
           navigation={{
             nextEl: '.swiper-button-next',

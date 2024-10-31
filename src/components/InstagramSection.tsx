@@ -12,7 +12,31 @@ export default function InstagramSection() {
   return (
     <section className="py-20 bg-text-light">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold bg-primary text-center mb-12">Síguenos en Instagram</h2>
+        <div className="text-center mb-12">
+          <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 rounded-lg mb-12 text-center shadow-lg transform transition-all duration-300 scale-75 hover:scale-100">
+          <h2 className="text-6xl font-bold">
+            {" "}
+            <span className="text-purple-400">
+              {Array.from("Síguenos en Instagram").map((letter, index) => {
+                const color = `hsl(${index * 40}, 100%, 50%)`; // Color específico para cada letra
+                return (
+                  <span
+                    key={letter + index}
+                    className="glow"
+                    style={{
+                      animationDelay: `${index * 100}ms`,
+                      color: color,
+                      textShadow: `0 0 5px ${color}, 0 0 10px ${color}, 0 0 15px ${color}`, // Brillo específico
+                    }}
+                  >
+                    {letter}
+                  </span>
+                );
+              })}
+            </span>
+          </h2>
+          </div>
+        </div>
         <div className="text-center mb-8">
           <p className="text-xl mb-4">Descubre nuestras últimas colecciones y ofertas exclusivas.</p>
           <button className="bg-black hover:bg-gray-800 text-white py-2 px-6 rounded-full transition duration-200">
@@ -24,11 +48,11 @@ export default function InstagramSection() {
           {posts.map((post) => (
             <div key={post.id} className="relative bg-white rounded-lg shadow-md overflow-hidden">
               <a href={post.link} target="_blank" rel="noopener noreferrer">
-                <div className="relative w-full h-0 pb-[100%]"> {/* Mantener aspecto cuadrado */}
+                <div className="relative w-full h-0 pb-[100%]">
                   <Image
                     src={post.src}
                     alt={`Instagram post ${post.id}`}
-                    fill // Cambiado de layout="fill" a fill
+                    fill
                     className="rounded-lg transition-transform duration-300 hover:filter hover:contrast-125 object-cover"
                   />
                 </div>
@@ -45,7 +69,7 @@ export default function InstagramSection() {
                     <Share2 className="h-5 w-5" />
                   </button>
                 </div>
-                <span className="text-gray-500 text-sm">1.5k</span> {/* Ejemplo de likes */}
+                <span className="text-gray-500 text-sm">1.5k</span>
               </div>
             </div>
           ))}

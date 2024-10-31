@@ -3,7 +3,7 @@
 import { useState, forwardRef } from 'react'
 import Button from "./ui/button"
 import Textarea from './ui/Textarea'
-import { Instagram, Phone, Mail, User } from "lucide-react" // Importar el ícono de usuario
+import { Instagram, Phone, Mail, User } from "lucide-react"
 import Input from './ui/Input'
 
 const ContactForm = forwardRef<HTMLElement>((props, ref) => {
@@ -21,13 +21,16 @@ const ContactForm = forwardRef<HTMLElement>((props, ref) => {
   return (
     <section ref={ref} className="py-20 bg-secondary">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Contáctanos</h2>
+        <div className='bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 rounded-lg mb-12 shadow-lg transform transition-all duration-300 scale-75 hover:scale-100 flex justify-center'>
+          <h2 className="text-5xl font-bold text-center">Contáctanos</h2>
+        </div>
+        
         <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
           <div>
             <label htmlFor="name" className="block text-sm font-medium mb-1">Nombre</label>
             <div className="flex">
               <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-input bg-muted text-muted-foreground">
-                <User className="h-5 w-5" /> {/* Ícono de usuario */}
+                <User className="h-5 w-5" />
               </span>
               <Input id="name" name="name" required className="rounded-l-none" />
             </div>

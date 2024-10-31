@@ -146,12 +146,25 @@ const TikTokSection = forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>
 
   return (
     <div className="flex flex-col items-center" ref={ref}>
-      <h2 className="text-3xl font-bold mb-4 flex items-center">
-      <span>Nuestros TikToks</span>
-        <span className= "ml-2">
-          <AiFillTikTok className="h-10 w-auto text-black-600" />
+      <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 rounded-lg mb-12 text-center shadow-lg transform transition-all duration-300 scale-75 hover:scale-100 flex items-center justify-between">
+        <h2 className="text-5xl font-bold">
+          <span>Nuestros </span>
+          <span className="text-purple-400">
+            {Array.from("TikToks").map((letter, index) => (
+              <span
+                key={index}
+                className="glow"
+                style={{ color: `hsl(${index * 40}, 100%, 50%)` }}
+              >
+                {letter}
+              </span>
+            ))}
+          </span>
+        </h2>
+        <span className="text-8xl ml-4">
+          <AiFillTikTok className="text-black transform transition-transform duration-300 hover:scale-110" />
         </span>
-      </h2>
+      </div>
       <div className="flex flex-wrap justify-center gap-4">
         {videos.map((video) => (
           <TikTokVideo
